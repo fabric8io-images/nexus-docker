@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <nexusConfiguration>
+  <!-- added staging and jboss repository -->
   <version>2.8.0</version>
   <nexusVersion>2.11.2-06</nexusVersion>
   <globalConnectionSettings>
