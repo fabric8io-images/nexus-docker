@@ -5,3 +5,15 @@ Our distro of the OSS [Sonatype Nexus](http://www.sonatype.org/nexus/) based on 
 
 * adds the [JBoss Repository](https://repository.jboss.org/) to its proxy list
 * adds a staging repository
+
+
+Running this container
+----------------------
+
+```
+docker run -d -p 8081:8081 --name nexus fabric8/nexus
+```
+
+The default credentials are: `admin` / `admin123`.
+
+For more detail on configuration options see the [sonatype nexus image documentation](https://registry.hub.docker.com/u/sonatype/nexus/).
