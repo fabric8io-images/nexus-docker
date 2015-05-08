@@ -14,6 +14,8 @@ Running this container
 docker run -d -p 8081:8081 --name nexus fabric8/nexus
 ```
 
+If `dockerhost` is the host running docker then you can view the running Nexus at http://dockerhost:8081/
+
 The default credentials are: `admin` / `admin123`.
 
 For more detail on configuration options see the [sonatype nexus image documentation](https://registry.hub.docker.com/u/sonatype/nexus/).
