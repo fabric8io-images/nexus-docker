@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nexusConfiguration>
-  <!-- added staging and jboss repository -->
   <version>2.8.0</version>
   <nexusVersion>2.11.2-06</nexusVersion>
   <globalConnectionSettings>
@@ -264,6 +263,7 @@
           <memberRepository>fuse</memberRepository>
           <memberRepository>sonatype-snapshots</memberRepository>
           <memberRepository>apache-snapshots</memberRepository>
+          <memberRepository>jenkins-ci</memberRepository>
         </memberRepositories>
       </externalConfiguration>
     </repository>
@@ -337,6 +337,37 @@
       </localStorage>
       <remoteStorage>
         <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>jenkins-ci</id>
+      <name>jenkins-ci</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repo.jenkins-ci.org/public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
