@@ -110,6 +110,36 @@
       </externalConfiguration>
     </repository>
     <repository>
+      <id>sonatype-staging</id>
+      <name>Sonatype Staging</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>https://oss.sonatype.org/content/repositories/staging/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <proxyMode>ALLOW</proxyMode>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
+        <downloadRemoteIndex>false</downloadRemoteIndex>
+        <checksumPolicy>WARN</checksumPolicy>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+      </externalConfiguration>
+    </repository>
+    <repository>
       <id>sonatype-snapshots</id>
       <name>Sonatype Snapshots</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -262,6 +292,7 @@
           <memberRepository>jboss</memberRepository>
           <memberRepository>fuse</memberRepository>
           <memberRepository>sonatype-snapshots</memberRepository>
+          <memberRepository>sonatype-staging</memberRepository>
           <memberRepository>apache-snapshots</memberRepository>
           <memberRepository>jenkins-ci</memberRepository>
         </memberRepositories>
