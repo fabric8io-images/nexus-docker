@@ -1,5 +1,4 @@
 FROM       centos:centos7
-# modified to run on OpenShift
 MAINTAINER Sonatype <cloud-ops@sonatype.com>
 
 ENV SONATYPE_WORK /sonatype-work
@@ -33,23 +32,15 @@ RUN mkdir -p /opt/sonatype/nexus \
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
 
+VOLUME ${SONATYPE_WORK}
+
 WORKDIR /opt/sonatype/nexus
 USER nexus
-ENV CONTEXT_PATH /nexus
+ENV CONTEXT_PATH /
 ENV MAX_HEAP 768m
 ENV MIN_HEAP 256m
 ENV JAVA_OPTS -server -Djava.net.preferIPv4Stack=true
 ENV LAUNCHER_CONF ./conf/jetty.xml ./conf/jetty-requestlog.xml
-
-COPY nexus.xml /sonatype-work/conf/nexus.xml
-
-USER root
-RUN chgrp -R 0 /sonatype-work
-RUN chmod -R g+rw /sonatype-work
-RUN find /sonatype-work -type d -exec chmod g+x {} +
-
-USER 200
-
 CMD ${JAVA_HOME}/bin/java \
   -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
   -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
