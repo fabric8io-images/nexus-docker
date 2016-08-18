@@ -1,6 +1,4 @@
 FROM       centos:centos7
-
-# modified to run on OpenShift
 MAINTAINER Sonatype <cloud-ops@sonatype.com>
 
 ENV SONATYPE_WORK /sonatype-work
@@ -34,13 +32,7 @@ RUN mkdir -p /opt/sonatype/nexus \
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
 
-# as openshift runs containers with a different User
-USER root
-RUN chgrp -R 0 /sonatype-work
-RUN chmod -R g+rw /sonatype-work
-RUN find /sonatype-work -type d -exec chmod g+x {} +
-
-USER 200
+VOLUME ${SONATYPE_WORK}
 
 WORKDIR /opt/sonatype/nexus
 USER nexus
