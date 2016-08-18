@@ -44,7 +44,7 @@ RUN chgrp -R 0 /sonatype-work
 RUN chmod -R g+rw /sonatype-work
 RUN find /sonatype-work -type d -exec chmod g+x {} +
 
-USER 200
+#USER 200
 
 ENV CONTEXT_PATH /
 ENV MAX_HEAP 768m
