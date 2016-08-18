@@ -35,13 +35,13 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/fal
 VOLUME ${SONATYPE_WORK}
 
 WORKDIR /opt/sonatype/nexus
+
+USER nexus
 COPY nexus.xml /sonatype-work/conf/nexus.xml
 RUN chgrp -R 0 /sonatype-work
-RUN chown -R nexus /sonatype-work
 RUN chmod -R g+rw /sonatype-work
 RUN find /sonatype-work -type d -exec chmod g+x {} +
 
-USER nexus
 ENV CONTEXT_PATH /
 ENV MAX_HEAP 768m
 ENV MIN_HEAP 256m
