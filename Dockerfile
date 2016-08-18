@@ -37,6 +37,7 @@ VOLUME ${SONATYPE_WORK}
 WORKDIR /opt/sonatype/nexus
 COPY nexus.xml /sonatype-work/conf/nexus.xml
 RUN chgrp -R 0 /sonatype-work
+RUN chown -R nexus /sonatype-work
 RUN chmod -R g+rw /sonatype-work
 RUN find /sonatype-work -type d -exec chmod g+x {} +
 
