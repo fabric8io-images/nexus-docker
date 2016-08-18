@@ -35,6 +35,8 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/fal
 VOLUME ${SONATYPE_WORK}
 
 WORKDIR /opt/sonatype/nexus
+COPY nexus.xml /sonatype-work/conf/nexus.xml
+
 USER nexus
 ENV CONTEXT_PATH /
 ENV MAX_HEAP 768m
