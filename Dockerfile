@@ -32,8 +32,6 @@ RUN mkdir -p /opt/sonatype/nexus \
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
 
-VOLUME ${SONATYPE_WORK}
-
 WORKDIR /opt/sonatype/nexus
 
 USER nexus
