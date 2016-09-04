@@ -1,0 +1,5 @@
+{
+  "name": "sonatype-snapshots",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('sonatype-snapshots', 'https://oss.sonatype.org/content/repositories/snapshots/')"
+}

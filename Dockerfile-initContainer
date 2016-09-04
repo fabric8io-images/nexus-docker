@@ -1,14 +1,33 @@
 # Using the docker-nexus3 Dockerfile, removing VOLUME to run on OpenShift
 # Until we have initContainers in Kubernetes 1.4 we have to use a custom script to configure nexus after starting
+
+#FROM alpine:3.4
+#RUN apk update && \
+#  apk add curl
+
 FROM fabric8/java-centos-openjdk8-jre
 
 ENV NEXUS_DATA /nexus-data
 
 ENV NEXUS_VERSION 3.0.1-01
 
+ENV JAVA_HOME /opt/java
+#ENV JAVA_VERSION_MAJOR 8
+#ENV JAVA_VERSION_MINOR 102
+#ENV JAVA_VERSION_BUILD 14
+
 RUN yum install -y \
   curl tar \
   && yum clean all
+
+# install Oracle JRE
+#RUN mkdir -p /opt \
+#  && curl --fail --silent --location --retry 3 \
+#  --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
+#  http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/server-jre-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
+#  | gunzip \
+#  | tar -x -C /opt \
+#  && ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} ${JAVA_HOME}
 
 # install nexus
 RUN mkdir -p /opt/sonatype/nexus \
@@ -30,18 +49,18 @@ RUN sed \
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${NEXUS_DATA} -s /bin/false nexus
 
-ENV JAVA_MAX_MEM 1200m
-ENV JAVA_MIN_MEM 1200m
-ENV EXTRA_JAVA_OPTS ""
-
 EXPOSE 8081
-
-ADD *.json /opt/sonatype/nexus/
-ADD postStart.sh /opt/sonatype/nexus/
-
-RUN chown nexus:nexus /opt/sonatype/nexus/
-
 USER nexus
 WORKDIR /opt/sonatype/nexus
 
+#ENV JAVA_MAX_MEM 1200m
+#ENV JAVA_MIN_MEM 1200m
+#ENV EXTRA_JAVA_OPTS ""
+
 CMD bin/nexus run
+
+
+#ADD *.json ./
+#ADD run.sh .
+
+#CMD bin/nexus run

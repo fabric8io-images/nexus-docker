@@ -1,0 +1,2 @@
+String[] members = ['fuse','jboss','jenkins-ci','sonartype-snapshots','sonartype-staging','maven-central','maven-public','maven-releases','maven-snapshots']
+repository.createMavenGroup('public', members)
