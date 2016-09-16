@@ -1,5 +1,5 @@
 {
-  "name": "public",
+  "name": "zzz_public",
   "type": "groovy",
   "content": "repository.createMavenGroup('public', ['fuse','jboss','jenkins-ci','maven-central','maven-public','maven-releases','maven-snapshots','sonatype-snapshots','sonatype-staging'])"
 }
