@@ -1,0 +1,5 @@
+{
+  "name": "npmjs",
+  "type": "groovy",
+  "content": "repository.createNpmProxy('npmjs', 'https://registry.npmjs.org')"
+}
