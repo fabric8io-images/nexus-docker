@@ -295,6 +295,11 @@
           <memberRepository>sonatype-staging</memberRepository>
           <memberRepository>apache-snapshots</memberRepository>
           <memberRepository>jenkins-ci</memberRepository>
+          <memberRepository>jboss.http</memberRepository>
+          <memberRepository>spring.io.milestone</memberRepository>
+          <memberRepository>spring.io.release</memberRepository>
+          <memberRepository>servicemix.repo</memberRepository>
+          <memberRepository>eclipselink.repo</memberRepository>
         </memberRepositories>
       </externalConfiguration>
     </repository>
