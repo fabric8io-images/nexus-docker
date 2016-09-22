@@ -1,0 +1,5 @@
+{
+  "name": "spring-release",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('spring-release', 'http://repo.spring.io/release/')"
+}

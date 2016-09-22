@@ -1,0 +1,6 @@
+{
+  "name": "eclipselink",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('eclipselink', 'http://download.eclipse.org/rt/eclipselink/maven.repo/')"
+}
+

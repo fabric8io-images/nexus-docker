@@ -1,0 +1,5 @@
+{
+  "name": "jboss-http",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('jboss-http', 'http://repository.jboss.org/nexus/content/groups/public/')"
+}
