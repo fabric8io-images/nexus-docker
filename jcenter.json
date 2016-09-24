@@ -1,0 +1,6 @@
+{
+  "name": "jcenter",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('jcenter', 'http://jcenter.bintray.com/')"
+}
+

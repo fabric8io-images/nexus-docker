@@ -1,0 +1,5 @@
+{
+  "name": "fuse-ea",
+  "type": "groovy",
+  "content": "repository.createMavenProxy('fuse-ea', 'https://repo.fusesource.com/nexus/content/groups/ea/')"
+}
