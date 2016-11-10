@@ -34,6 +34,8 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/fal
 
 WORKDIR /opt/sonatype/nexus
 
+RUN chown -R nexus:nexus /sonatype-work
+
 USER nexus
 COPY nexus.xml /sonatype-work/conf/nexus.xml
 
