@@ -300,6 +300,7 @@
           <memberRepository>spring.io.release</memberRepository>
           <memberRepository>servicemix.repo</memberRepository>
           <memberRepository>eclipselink.repo</memberRepository>
+          <memberRepository>fs-public</memberRepository>
         </memberRepositories>
       </externalConfiguration>
     </repository>
@@ -373,6 +374,37 @@
       </localStorage>
       <remoteStorage>
         <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>fs-public</id>
+      <name>fs-public</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>https://repository.jboss.org/nexus/content/groups/fs-public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
