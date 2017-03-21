@@ -668,7 +668,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>https://registry.npmjs.org</url>
+        <url>http://registry.npmjs.org</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>MIXED</repositoryPolicy>
