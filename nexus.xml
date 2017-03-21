@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nexusConfiguration>
   <version>2.8.0</version>
-  <nexusVersion>2.11.2-06</nexusVersion>
+  <nexusVersion>2.13.0-01</nexusVersion>
   <globalConnectionSettings>
     <connectionTimeout>20000</connectionTimeout>
     <retrievalRetryCount>3</retrievalRetryCount>
@@ -100,7 +100,7 @@
         <url>https://nexus.codehaus.org/snapshots/</url>
       </remoteStorage>
       <externalConfiguration>
-        <proxyMode>ALLOW</proxyMode>
+        <proxyMode>BLOCKED_AUTO</proxyMode>
         <artifactMaxAge>1440</artifactMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
@@ -528,7 +528,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://repo.spring.io/milestone</url>
+        <url>http://repo.spring.io/milestone/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
@@ -559,7 +559,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://repo.spring.io/release</url>
+        <url>http://repo.spring.io/release/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
@@ -590,7 +590,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://svn.apache.org/repos/asf/servicemix/m2-repo</url>
+        <url>http://svn.apache.org/repos/asf/servicemix/m2-repo/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
@@ -621,13 +621,59 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+        <url>http://download.eclipse.org/rt/eclipselink/maven.repo/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>npm-internal</id>
+      <name>npm-internal</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>npm-hosted</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>ALLOW_WRITE</writePolicy>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <repositoryPolicy>MIXED</repositoryPolicy>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>npm</id>
+      <name>npm</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>npm-proxy</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>https://registry.npmjs.org</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>MIXED</repositoryPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>false</downloadRemoteIndex>
         <artifactMaxAge>-1</artifactMaxAge>
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
@@ -741,7 +787,7 @@
     <hostname>smtp-host</hostname>
     <port>25</port>
     <username>smtp-username</username>
-    <password>{KieM5iJlSsAHkmtT1D1XBwvs45dXGpdWKXBlsQNDi9g=}</password>
+    <password>{Gjy9mDtB/cAHJbQ7o/O3jIeDlGe5PtwzbfRLKRqKerU=}</password>
     <systemEmailAddress>system@nexus.org</systemEmailAddress>
   </smtpConfiguration>
   <notification />
