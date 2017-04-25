@@ -403,7 +403,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>ttps://repository.jboss.org/nexus/content/groups/ea</url>
+        <url>https://repository.jboss.org/nexus/content/groups/ea</url>
       </remoteStorage>
       <externalConfiguration>
         <proxyMode>ALLOW</proxyMode>
@@ -448,7 +448,7 @@
     </repository>
     <repository>
       <id>fs-public</id>
-      <name>fs-public</name>
+      <name>FuseSource Public</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -479,7 +479,7 @@
     </repository>
     <repository>
       <id>jenkins-ci</id>
-      <name>jenkins-ci</name>
+      <name>Jenkins CI</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -510,7 +510,7 @@
     </repository>
     <repository>
       <id>jcenter</id>
-      <name>jcenter</name>
+      <name>JCenter Bintray</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -572,7 +572,7 @@
     </repository>
     <repository>
       <id>spring.io.milestone</id>
-      <name>spring.io-milestone</name>
+      <name>Spring Milestones</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -603,7 +603,7 @@
     </repository>
     <repository>
       <id>spring.io.release</id>
-      <name>spring.io-release</name>
+      <name>Spring Releases</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -696,7 +696,7 @@
     </repository>
     <repository>
       <id>npm-internal</id>
-      <name>npm-internal</name>
+      <name>NPM Internal</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>npm-hosted</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -714,7 +714,7 @@
     </repository>
     <repository>
       <id>npm</id>
-      <name>npm</name>
+      <name>NPM</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>npm-proxy</providerHint>
       <localStatus>IN_SERVICE</localStatus>
