@@ -26,7 +26,10 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/fal
 WORKDIR /opt/sonatype/nexus
 
 USER nexus
+COPY startnexus /opt/sonatype/nexus/bin/startnexus
 COPY nexus.xml /sonatype-work/conf/nexus.xml
+COPY passwd.template /usr/local/share/passwd.template
+
 
 USER root
 RUN chgrp -R 0 /sonatype-work
@@ -35,14 +38,4 @@ RUN find /sonatype-work -type d -exec chmod g+x {} +
 
 #USER 200
 
-ENV CONTEXT_PATH /
-ENV MAX_HEAP 768m
-ENV MIN_HEAP 256m
-ENV JAVA_OPTS -server -Djava.net.preferIPv4Stack=true
-ENV LAUNCHER_CONF ./conf/jetty.xml ./conf/jetty-requestlog.xml
-CMD ${JAVA_HOME}/bin/java \
-  -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
-  -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
-  -cp 'conf/:lib/*' \
-  ${JAVA_OPTS} \
-  org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
+CMD /opt/sonatype/nexus/bin/startnexus

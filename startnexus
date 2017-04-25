@@ -1,0 +1,27 @@
+#!/bin/bash
+
+export JAVA_HOME=/opt/java
+export CONTEXT_PATH=/
+export MAX_HEAP=768m
+export MIN_HEAP=256m
+export JAVA_OPTS="-server -Djava.net.preferIPv4Stack=true"
+export LAUNCHER_CONF="./conf/jetty.xml ./conf/jetty-requestlog.xml"
+
+export USER_ID=$(id -u)
+export GROUP_ID=$(id -g)
+
+export LD_PRELOAD=libnss_wrapper.so
+export NSS_WRAPPER_PASSWD=/tmp/passwd
+export NSS_WRAPPER_GROUP=/etc/group
+
+if [ ! -f /tmp/passwd ]; then
+    envsubst < /usr/local/share/passwd.template > /tmp/passwd
+fi
+
+
+${JAVA_HOME}/bin/java \
+  -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
+  -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
+  -cp 'conf/:lib/*' \
+  ${JAVA_OPTS} \
+  org.sonatype.nexus.bootstrap.Launcher ${LAUNCHER_CONF}
