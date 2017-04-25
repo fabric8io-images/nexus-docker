@@ -14,6 +14,11 @@ export LD_PRELOAD=libnss_wrapper.so
 export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
 
+#We only need to copy the default configuration if no configuration has been externally provided.
+if [ ! -f /sonatype-work/conf/nexus.xml ]; then
+    cp /usr/local/share/nexus.xml /sonatype-work/conf/nexus.xml
+fi
+
 if [ ! -f /tmp/passwd ]; then
     envsubst < /usr/local/share/passwd.template > /tmp/passwd
 fi

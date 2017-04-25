@@ -26,9 +26,13 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/fal
 WORKDIR /opt/sonatype/nexus
 
 USER nexus
-COPY startnexus /opt/sonatype/nexus/bin/startnexus
-COPY nexus.xml /sonatype-work/conf/nexus.xml
+
 COPY passwd.template /usr/local/share/passwd.template
+
+# We don't directly copy nexus.xml inside /sonatype-work/conf to allow the mounting a volume under that path.
+# instead we copy it to /usr/local/share and let the `startnexus` script use it if needed.
+COPY nexus.xml /usr/local/share/nexus.xml
+COPY startnexus /opt/sonatype/nexus/bin/startnexus
 
 
 USER root
