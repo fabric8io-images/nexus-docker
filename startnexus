@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME=/opt/java
+export JAVA_HOME=/usr/lib/jvm/java
 export CONTEXT_PATH=/
 export MAX_HEAP=768m
 export MIN_HEAP=256m
