@@ -9,9 +9,11 @@ ENV JAVA_VERSION_BUILD 02
 
 USER root
 
-RUN yum install -y \
-  curl tar createrepo \
-  && yum clean all
+RUN yum update -y && \
+    yum install -y epel-release git gettext && \
+    yum install -y nss_wrapper && \ 
+    yum install -y curl tar createrepo \
+    && yum clean all
 
 RUN mkdir -p /opt/sonatype/nexus \
   && curl --fail --silent --location --retry 3 \
