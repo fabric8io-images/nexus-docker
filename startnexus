@@ -16,6 +16,7 @@ export NSS_WRAPPER_GROUP=/etc/group
 
 #We only need to copy the default configuration if no configuration has been externally provided.
 if [ ! -f /sonatype-work/conf/nexus.xml ]; then
+    mkdir -p /sonatype-work/conf/	
     cp /usr/local/share/nexus.xml /sonatype-work/conf/nexus.xml
 fi
 
