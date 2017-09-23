@@ -290,6 +290,7 @@
           <memberRepository>central</memberRepository>
           <memberRepository>staging</memberRepository>
           <memberRepository>jboss</memberRepository>
+          <memberRepository>jboss.ea</memberRepository>
           <memberRepository>fuse</memberRepository>
           <memberRepository>sonatype-snapshots</memberRepository>
           <memberRepository>sonatype-staging</memberRepository>
