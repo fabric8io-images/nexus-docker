@@ -44,7 +44,7 @@ dockerTemplate{
             }
         }
       } else if (utils.isCD()){
-        
+        sh "git remote set-url origin git@github.com:fabric8io-images/${repo}.git"
         def v = getNewVersion{}
         stage('tag'){
           container('clients'){
