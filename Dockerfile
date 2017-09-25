@@ -4,7 +4,7 @@ FROM fabric8/java-centos-openjdk8-jre
 
 ENV NEXUS_DATA /nexus-data
 
-ENV NEXUS_VERSION 3.0.1-01
+ENV NEXUS_VERSION 3.0.2-02
 
 RUN yum install -y \
   curl tar \
@@ -30,8 +30,6 @@ RUN sed \
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${NEXUS_DATA} -s /bin/false nexus
 
-ENV JAVA_MAX_MEM 1200m
-ENV JAVA_MIN_MEM 1200m
 ENV EXTRA_JAVA_OPTS ""
 
 EXPOSE 8081
