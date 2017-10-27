@@ -315,7 +315,7 @@
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
-      <writePolicy>ALLOW_WRITE_ONCE</writePolicy>
+      <writePolicy>ALLOW_WRITE</writePolicy>
       <indexable>true</indexable>
       <searchable>true</searchable>
       <localStorage>
